@@ -1,0 +1,6 @@
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "./services/firebase";
+
+await addDoc(collection(db, "test"), {
+  name: "Momo Cart"
+});

@@ -1,0 +1,36 @@
+.floating-cart-v2 {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 80px;
+
+  background: #4b1600;
+  color: white;
+
+  border-radius: 16px;
+
+  padding: 14px 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+  z-index: 999;
+}
+
+.floating-cart-v2 strong {
+  display: block;
+}
+
+.floating-cart-v2 small {
+  opacity: .8;
+}
+
+.cart-action {
+  font-weight: 600;
+}

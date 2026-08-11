@@ -1,0 +1,66 @@
+.dashboard-page {
+  padding: 16px;
+}
+
+.dashboard-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.dashboard-card {
+  padding: 16px;
+
+  border-radius: 16px;
+
+  background: white;
+
+  box-shadow:
+    0 2px 12px rgba(0,0,0,.08);
+}
+
+.dashboard-card h4 {
+  margin: 0;
+  color: #666;
+}
+
+.dashboard-card h2 {
+  margin-top: 10px;
+}
+
+.sales {
+  border-left: 5px solid #10b981;
+}
+
+.expense {
+  border-left: 5px solid #ef4444;
+}
+
+.profit {
+  border-left: 5px solid #3b82f6;
+}
+
+.pending {
+  border-left: 5px solid #f59e0b;
+}
+
+.low-stock-section {
+  margin-top: 24px;
+}
+
+.low-stock-card {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding: 12px;
+
+  margin-top: 8px;
+
+  background: #fff5f5;
+
+  border-radius: 12px;
+}

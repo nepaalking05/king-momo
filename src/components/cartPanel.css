@@ -1,0 +1,34 @@
+.cart-item-v2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 0;
+
+  border-bottom: 1px solid #eee;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qty-control button {
+  width: 34px;
+  height: 34px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #4b1600;
+  color: white;
+
+  font-size: 18px;
+}
+
+.qty-control span {
+  min-width: 20px;
+  text-align: center;
+}

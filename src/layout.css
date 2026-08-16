@@ -1,0 +1,17 @@
+.app-layout {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+
+  /*
+   * Leave space for the fixed bottom navigation.
+   */
+  padding-bottom: 80px;
+}

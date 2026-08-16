@@ -1,241 +1,1116 @@
+/* =========================================
+   PAGE
+========================================= */
+
 .inventory-page {
-  padding: 16px;
-}
-
-.inventory-form {
-  background: white;
-  padding: 16px;
-  border-radius: 16px;
-  margin-bottom: 20px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.inventory-form input,
-.inventory-form select {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-}
-
-.variant-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.variant-btn {
-  border: none;
-  background: #f3f4f6;
-  padding: 8px 12px;
-  border-radius: 20px;
-}
-
-.variant-btn.active {
-  background: #4b1600;
-  color: white;
-}
-
-.save-item-btn {
-  background: #16a34a;
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 10px;
-  font-weight: 600;
-}
-
-.inventory-section {
-  margin-top: 20px;
-}
-
-.inventory-grid {
-  display: grid;
-  gap: 12px;
-}
-
-.inventory-card {
-  background: white;
-  border-radius: 14px;
-  padding: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.08);
-}
-
-.inventory-card img {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 10px;
-}
+  max-width: 1100px;
+  margin: 0 auto;
 
-.variant-tags {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-}
+  padding: 18px 20px 90px;
 
-.variant-tags span {
-  background: #eef2ff;
-  color: #4338ca;
-  padding: 4px 8px;
-  border-radius: 10px;
-  font-size: 12px;
-}
-
-.low-stock {
-  margin-top: 10px;
-  background: #dc2626;
-  color: white;
-  text-align: center;
-  padding: 6px;
-  border-radius: 8px;
-}
-
-.edit-btn{
-  background-color: #EA4C89;
-  border-radius: 8px;
-  border-style: none;
   box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 40px;
-  line-height: 20px;
-  list-style: none;
-  margin: 0;
-  outline: none;
-  padding: 10px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  transition: color 100ms;
-  vertical-align: baseline;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
 }
 
-&:hover,
-&:focus {
-  background-color: #F082AC;
-}
+/* =========================================
+   HEADER
+========================================= */
 
-.cancel-btn{
+.inventory-header {
+  display: flex;
   align-items: center;
-  background-color: #FFE7E7;
-  background-position: 0 0;
-  border: 1px solid #FEE0E0;
-  border-radius: 11px;
-  box-sizing: border-box;
-  color: #D33A2C;
-  cursor: pointer;
-  display: flex;
-  font-size: 1rem;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.inventory-header h2 {
+  margin: 0;
+
+  color: #1f1f1f;
+
+  font-size: 21px;
   font-weight: 700;
-  line-height: 33.4929px;
-  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
-  padding: 2px 12px;
-  text-align: left;
-  text-decoration: none;
-  text-shadow: none;
-  text-underline-offset: 1px;
-  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  white-space: nowrap;
-  word-break: break-word;
 }
 
-.button-45:active,
-.button-45:hover,
-.button-45:focus {
-  outline: 0;
+.inventory-header p {
+  margin: 3px 0 0;
+
+  color: #999;
+
+  font-size: 11px;
 }
 
+.desktop-add-btn {
+  display: flex;
+  align-items: center;
 
-.cancel-btn:active {
-  background-color: #D33A2C;
-  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
-  color: #FFFFFF;
+  gap: 6px;
+
+  height: 36px;
+
+  padding: 0 13px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
 }
 
-.cancel-btn:hover {
-  background-color: #FFE3E3;
-  border-color: #FAA4A4;
+.desktop-add-btn span {
+  font-size: 17px;
+  line-height: 1;
 }
-.inventory-fab {
-  position: fixed;
 
-  right: 20px;
-  bottom: 90px;
+/* =========================================
+   SEARCH
+========================================= */
 
-  width: 60px;
-  height: 60px;
+.inventory-search {
+  position: relative;
 
-  border: none;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
 
-  background: #4b1600;
-  color: white;
+  height: 40px;
 
-  font-size: 32px;
-  font-weight: bold;
+  margin-bottom: 9px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 9px;
+
+  background: #fff;
+}
+
+.search-icon {
+  width: 38px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  color: #999;
+
+  font-size: 20px;
+}
+
+.inventory-search input {
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 0 8px 0 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #222;
+
+  font-size: 14px;
+}
+
+.inventory-search input::placeholder {
+  color: #aaa;
+}
+
+.clear-search {
+  width: 28px;
+  height: 28px;
+
+  margin-right: 6px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #f2f2f2;
+
+  color: #777;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   CATEGORY FILTER
+========================================= */
+
+.category-filter-wrapper {
+  position: sticky;
+  top: 0;
+
+  z-index: 20;
+
+  padding: 7px 0;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.category-filter {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.category-filter::-webkit-scrollbar {
+  display: none;
+}
+
+.category-chip {
+  display: inline-flex;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  gap: 6px;
+
+  height: 32px;
+
+  padding: 0 10px;
+
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+
+  background: #fff;
+
+  color: #666;
+
+  font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
 
-  z-index: 99999;
-
-  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  transition: 0.15s ease;
 }
+
+.category-chip:hover {
+  border-color: #ccc;
+  color: #222;
+}
+
+.category-chip small {
+  min-width: 17px;
+  height: 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 4px;
+
+  box-sizing: border-box;
+
+  border-radius: 5px;
+
+  background: #f3f3f3;
+
+  color: #888;
+
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.category-chip.active {
+  border-color: #111;
+
+  background: #111;
+
+  color: #fff;
+}
+
+.category-chip.active small {
+  background: rgba(255, 255, 255, 0.16);
+
+  color: #fff;
+}
+
+/* =========================================
+   RESULTS HEADER
+========================================= */
+
+.inventory-results-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 12px 1px 7px;
+}
+
+.inventory-results-header > div {
+  display: flex;
+  align-items: baseline;
+
+  gap: 7px;
+}
+
+.inventory-results-header h3 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.inventory-results-header span {
+  color: #999;
+
+  font-size: 10px;
+}
+
+.search-result-label {
+  max-width: 250px;
+
+  overflow: hidden;
+
+  color: #999 !important;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* =========================================
+   INVENTORY LIST
+========================================= */
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+/* =========================================
+   INVENTORY CARD
+========================================= */
+
+.inventory-card {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 9px 11px;
+  font-size: 14px;
+  border: 1px solid #e9e9e9;
+  border-radius: 10px;
+
+  background: #fff;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.inventory-card:hover {
+  border-color: #d7d7d7;
+
+  box-shadow:
+    0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.inventory-main {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  min-width: 0;
+}
+
+/* =========================================
+   NAME
+========================================= */
+
+.inventory-name {
+  min-width: 160px;
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.inventory-name h4 {
+  min-width: 0;
+
+  margin: 0;
+
+  color: #222;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.inventory-status {
+  flex-shrink: 0;
+
+  padding: 2px 6px;
+
+  border-radius: 20px;
+
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 13px;
+}
+
+.inventory-status.low {
+  background: #fff3d0;
+  color: #946400;
+}
+
+.inventory-status.out {
+  background: #fde8e8;
+  color: #b42318;
+}
+
+/* =========================================
+   CATEGORY
+========================================= */
+
+.item-category {
+  flex-shrink: 0;
+
+  padding: 3px 6px;
+
+  border-radius: 5px;
+
+  background: #f6f6f6;
+
+  color: #888;
+
+  font-size: 8px;
+}
+
+/* =========================================
+   PRICE
+========================================= */
+
+.inventory-price {
+  min-width: 55px;
+
+  color: #222;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* =========================================
+   STOCK
+========================================= */
+
+.inventory-stock {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  min-width: 65px;
+}
+
+.inventory-stock span {
+  color: #cd3939;
+
+  font-size: 12px;
+}
+
+.inventory-stock strong {
+  color: #cd3939;
+
+  font-size: 11px;
+}
+
+.inventory-stock.low strong {
+  color: #b26b00;
+}
+
+.inventory-stock.empty strong {
+  color: #b42318;
+}
+
+/* =========================================
+   VARIANTS
+========================================= */
+
+.variant-tags {
+  display: flex;
+  align-items: center;
+
+  gap: 3px;
+
+  min-width: 100px;
+  max-width: 190px;
+
+  overflow: hidden;
+}
+
+.variant-tags span {
+  flex-shrink: 0;
+
+  padding: 3px 5px;
+
+  border: 1px solid #ededed;
+  border-radius: 4px;
+
+  background: #fafafa;
+
+  color: #777;
+
+  font-size: 12px;
+
+  white-space: nowrap;
+}
+
+.variant-tags .more-variants {
+  background: #f1f1f1;
+
+  color: #555;
+
+  font-weight: 600;
+}
+
+/* =========================================
+   EDIT
+========================================= */
+
+.edit-btn {
+  flex-shrink: 0;
+
+  height: 29px;
+
+  padding: 0 10px;
+
+  border: 1px solid #ddd;
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #333;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.edit-btn:hover {
+  border-color: #111;
+
+  background: #111;
+
+  color: #fff;
+}
+
+/* =========================================
+   OUT OF STOCK
+========================================= */
+
+.inventory-card.out-of-stock {
+  background: #fcfcfc;
+}
+
+.inventory-card.out-of-stock
+  .inventory-name h4 {
+  color: #999;
+}
+
+/* =========================================
+   EMPTY
+========================================= */
+
+.inventory-empty {
+  min-height: 180px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed #ddd;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.empty-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  font-size: 18px;
+}
+
+.inventory-empty h3 {
+  margin: 0;
+
+  color: #444;
+
+  font-size: 13px;
+}
+
+.inventory-empty p {
+  margin: 4px 0 10px;
+
+  color: #999;
+
+  font-size: 10px;
+}
+
+.inventory-empty button {
+  height: 28px;
+
+  padding: 0 10px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   DESKTOP ADD
+========================================= */
+
+.inventory-fab {
+  display: none;
+}
+
+/* =========================================
+   MODAL OVERLAY
+========================================= */
 
 .inventory-modal-overlay {
   position: fixed;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.5);
+  z-index: 99999;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  z-index: 99999;
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  background: rgba(15, 15, 15, 0.42);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
+/* =========================================
+   MODAL
+========================================= */
+
 .inventory-modal {
-  width: 95%;
-  max-width: 450px;
+  width: min(100%, 480px);
 
-  background: white;
-
-  border-radius: 20px;
-
-  padding: 20px;
+  max-height: 90vh;
 
   display: flex;
   flex-direction: column;
-  gap: 12px;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  overflow: hidden;
+
+  border-radius: 16px;
+
+  background: #fff;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
-.inventory-modal input,
-.inventory-modal select {
-  width: 100%;
+/* =========================================
+   MODAL HEADER
+========================================= */
 
-  padding: 12px;
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: 17px 18px 14px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 16px;
+}
+
+.modal-header p {
+  margin: 3px 0 0;
+
+  color: #999;
+
+  font-size: 10px;
+}
+
+.modal-close {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #f3f3f3;
+
+  color: #666;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.inventory-form {
+  overflow-y: auto;
+
+  padding: 16px 18px;
+}
+
+.form-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-bottom: 12px;
+}
+
+.form-field label {
+  color: #555;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  height: 38px;
+
+  box-sizing: border-box;
+
+  padding: 0 10px;
+
+  outline: none;
 
   border: 1px solid #ddd;
+  border-radius: 8px;
 
-  border-radius: 10px;
+  background: #fff;
+
+  color: #222;
+
+  font-size: 12px;
+
+  transition: border-color 0.15s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #999;
+}
+
+.input-with-prefix {
+  display: flex;
+  align-items: center;
+
+  height: 38px;
+
+  overflow: hidden;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.input-with-prefix span {
+  padding-left: 10px;
+
+  color: #999;
+
+  font-size: 12px;
+}
+
+.input-with-prefix input {
+  border: 0;
+
+  height: 100%;
+
+  padding-left: 5px;
+}
+
+/* =========================================
+   VARIANT SELECTOR
+========================================= */
+
+.variant-selector {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 6px;
+}
+
+.variant-btn {
+  height: 30px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 0 9px;
+
+  border: 1px solid #ddd;
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #666;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.variant-btn:hover {
+  border-color: #bbb;
+}
+
+.variant-btn.active {
+  border-color: #111;
+
+  background: #111;
+
+  color: #fff;
+}
+
+/* =========================================
+   MODAL FOOTER
+========================================= */
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  padding: 12px 18px;
+
+  border-top: 1px solid #eee;
+
+  background: #fafafa;
+}
+
+.cancel-btn,
+.save-item-btn {
+  height: 36px;
+
+  padding: 0 14px;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-btn {
+  border: 1px solid #ddd;
+
+  background: #fff;
+
+  color: #555;
+}
+
+.save-item-btn {
+  border: 0;
+
+  background: #111;
+
+  color: #fff;
+}
+
+.save-item-btn:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .inventory-main {
+    gap: 8px;
+  }
+
+  .inventory-name {
+    min-width: 120px;
+  }
+
+  .variant-tags {
+    max-width: 120px;
+  }
+
+  .item-category {
+    display: none;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .inventory-page {
+    padding: 12px 10px 85px;
+  }
+
+  .inventory-header {
+    margin-bottom: 10px;
+  }
+
+  .inventory-header h2 {
+    font-size: 18px;
+  }
+
+  .inventory-header p {
+    font-size: 10px;
+  }
+
+  .desktop-add-btn {
+    display: none;
+  }
+
+  .inventory-search {
+    height: 38px;
+  }
+
+  .category-filter-wrapper {
+    margin: 0 -10px;
+
+    padding: 7px 10px;
+  }
+
+  .inventory-results-header {
+    padding-top: 10px;
+  }
+
+  /* Compact mobile card */
+
+  .inventory-card {
+    padding: 9px 10px;
+
+    border-radius: 9px;
+  }
+
+  .inventory-main {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto
+      auto;
+
+    grid-template-areas:
+      "name stock edit"
+      "price variants edit";
+
+    column-gap: 8px;
+    row-gap: 3px;
+  }
+
+  .inventory-name {
+    grid-area: name;
+
+    min-width: 0;
+  }
+
+  .inventory-name h4 {
+    font-size: 16px;
+  }
+
+  .inventory-price {
+    grid-area: price;
+
+    min-width: 0;
+
+    font-size: 14px;
+  }
+
+  .inventory-stock {
+    grid-area: stock;
+
+    min-width: 0;
+
+    justify-content: flex-end;
+  }
+
+  .inventory-stock span {
+    display: none;
+  }
+
+  .inventory-stock strong {
+    font-size: 16px;
+  }
+
+  .variant-tags {
+    grid-area: variants;
+
+    min-width: 0;
+    max-width: 150px;
+  }
+
+  .variant-tags span {
+    padding: 2px 4px;
+
+    font-size: 12px;
+  }
+
+  .edit-btn {
+    grid-area: edit;
+
+    align-self: center;
+
+    height: 29px;
+
+    padding: 0 9px;
+
+    font-size: 16px;
+  }
+
+  /* FAB */
+
+  .inventory-fab {
+    position: fixed;
+
+    right: 18px;
+    bottom: 20px;
+
+    z-index: 50;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 25px;
+    font-weight: 300;
+
+    box-shadow:
+      0 6px 20px rgba(0, 0, 0, 0.2);
+
+    cursor: pointer;
+  }
+
+  /* Modal becomes bottom sheet */
+
+  .inventory-modal-overlay {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+  .inventory-modal {
+    width: 100%;
+
+    max-height: 90vh;
+
+    border-radius: 18px 18px 0 0;
+  }
+
+  .modal-header {
+    padding: 15px 15px 12px;
+  }
+
+  .inventory-form {
+    padding: 14px 15px;
+  }
+
+  .modal-footer {
+    padding:
+      10px 15px
+      calc(10px + env(safe-area-inset-bottom));
+  }
+
+  .cancel-btn,
+  .save-item-btn {
+    flex: 1;
+  }
 }

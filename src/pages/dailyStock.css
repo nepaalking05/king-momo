@@ -1,0 +1,1407 @@
+/* =========================================================
+   DAILY STOCK / EXPENSES PAGE
+========================================================= */
+
+.daily-stock-page {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+
+  padding: 18px 20px 80px;
+
+  box-sizing: border-box;
+
+  color: #222;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.daily-stock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 16px;
+}
+
+.daily-stock-header h2 {
+  margin: 0;
+
+  color: #202020;
+
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.daily-stock-header p {
+  margin: 3px 0 0;
+
+  color: #999;
+
+  font-size: 12px;
+}
+
+.add-entry-btn {
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 0 14px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.add-entry-btn:hover {
+  background: #292929;
+}
+
+.add-entry-btn:active {
+  transform: scale(0.98);
+}
+
+.add-entry-btn span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.expense-summary {
+  display: grid;
+
+  grid-template-columns:
+    1.35fr
+    1fr
+    1fr
+    1fr
+    1fr;
+
+  gap: 8px;
+
+  margin-bottom: 15px;
+}
+
+.expense-summary-main,
+.expense-summary-item {
+  min-width: 0;
+
+  min-height: 70px;
+
+  padding: 11px 13px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+
+  background: #fff;
+}
+
+
+/* Main total */
+
+.expense-summary-main {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  background: #111;
+
+  border-color: #111;
+}
+
+.expense-summary-main span {
+  color: #aaa;
+
+  font-size: 9px;
+}
+
+.expense-summary-main strong {
+  margin-top: 2px;
+
+  color: #fff;
+
+  font-size: 19px;
+  line-height: 1.2;
+}
+
+.expense-summary-main small {
+  margin-top: 3px;
+
+  color: #777;
+
+  font-size: 8px;
+}
+
+
+/* Small summary cards */
+
+.expense-summary-item {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 3px;
+}
+
+.expense-summary-item span {
+  color: #999;
+
+  font-size: 12px;
+}
+
+.expense-summary-item strong {
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+
+/* Salary deduction */
+
+.expense-summary-item.deduction {
+  background: #fafafa;
+}
+
+.expense-summary-item.deduction strong {
+  color: #a46b00;
+}
+
+
+/* =========================================================
+   TOOLBAR
+========================================================= */
+
+.stock-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.stock-filters {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  overflow-x: auto;
+
+  scrollbar-width: none;
+}
+
+.stock-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.stock-filters button {
+  height: 29px;
+
+  padding: 0 11px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 7px;
+
+  background: #fff;
+  color: #777;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.stock-filters button:hover {
+  border-color: #ccc;
+
+  color: #333;
+}
+
+.stock-filters button.active {
+  border-color: #111;
+
+  background: #111;
+  color: #fff;
+
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.stock-search {
+  width: 165px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #e4e4e4;
+  border-radius: 7px;
+
+  background: #fff;
+
+  box-sizing: border-box;
+}
+
+.stock-search > span {
+  width: 29px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #999;
+
+  font-size: 16px;
+}
+
+.stock-search input {
+  width: 100%;
+  height: 100%;
+
+  min-width: 0;
+
+  padding: 0 8px 0 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #222;
+
+  font-size: 12px;
+}
+
+.stock-search input::placeholder {
+  color: #aaa;
+}
+
+
+/* =========================================================
+   LIST
+========================================================= */
+
+.daily-stock-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+/* =========================================================
+   EXPENSE CARD
+========================================================= */
+
+.expense-card {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 8px 11px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #e9e9e9;
+  border-radius: 9px;
+
+  background: #fff;
+
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.15s ease;
+}
+
+.expense-card:hover {
+  border-color: #d8d8d8;
+
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.035);
+}
+
+
+/* =========================================================
+   TYPE LEFT BORDER
+========================================================= */
+
+.expense-card.employee {
+  border-left: 3px solid #555;
+}
+
+.expense-card.preparation {
+  border-left: 3px solid #3d8b55;
+}
+
+.expense-card.packaging {
+  border-left: 3px solid #8b6b3d;
+}
+
+
+/* =========================================================
+   CARD MAIN
+========================================================= */
+
+.expense-card-main {
+  min-width: 0;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.expense-card-title {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+}
+
+.expense-card-title h4 {
+  min-width: 0;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  color: #222;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1.25;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   TYPE BADGES
+========================================================= */
+
+.type-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  height: 18px;
+
+  padding: 0 6px;
+
+  border-radius: 5px;
+
+  font-size: 7px;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.type-badge.employee {
+  background: #f1f1f1;
+  color: #666;
+}
+
+.type-badge.preparation {
+  background: #edf7ef;
+  color: #39744b;
+}
+
+.type-badge.packaging {
+  background: #f8f2e9;
+  color: #806033;
+}
+
+
+/* =========================================================
+   META
+========================================================= */
+
+.expense-card-meta {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  overflow: hidden;
+
+  color: #999;
+
+  font-size: 8px;
+
+  white-space: nowrap;
+}
+
+.expense-card-meta span {
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.expense-note {
+  max-width: 500px;
+
+  overflow: hidden;
+
+  color: #aaa;
+
+  font-size: 8px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   SALARY DEDUCTION
+========================================================= */
+
+.salary-deduction-badge {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 2px;
+
+  padding: 2px 5px;
+
+  border-radius: 4px;
+
+  background: #fff6df;
+
+  color: #9a6a00;
+
+  font-size: 7px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   AMOUNT
+========================================================= */
+
+.expense-card-amount {
+  flex-shrink: 0;
+
+  min-width: 65px;
+
+  text-align: right;
+}
+
+.expense-card-amount strong {
+  color: #222;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.empty-stock {
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px 15px;
+
+  border: 1px dashed #ddd;
+  border-radius: 11px;
+
+  background: #fff;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+.empty-stock-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  border-radius: 50%;
+
+  background: #f5f5f5;
+
+  color: #777;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.empty-stock h3 {
+  margin: 0;
+
+  color: #444;
+
+  font-size: 12px;
+}
+
+.empty-stock p {
+  max-width: 280px;
+
+  margin: 4px 0 10px;
+
+  color: #999;
+
+  font-size: 9px;
+}
+
+.empty-stock button {
+  height: 28px;
+
+  padding: 0 11px;
+
+  border: 0;
+  border-radius: 6px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.daily-stock-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px;
+
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.42);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.daily-stock-modal {
+  width: 100%;
+  max-width: 460px;
+
+  max-height: calc(100vh - 30px);
+
+  overflow-y: auto;
+
+  padding: 18px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 14px;
+
+  background: #fff;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.18);
+
+  animation:
+    modalIn 0.18s ease-out;
+}
+
+@keyframes modalIn {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(8px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+
+  color: #222;
+
+  font-size: 16px;
+}
+
+.modal-header p {
+  margin: 3px 0 0;
+
+  color: #999;
+
+  font-size: 9px;
+}
+
+.modal-close {
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: #f5f5f5;
+  color: #777;
+
+  font-size: 19px;
+
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  background: #ededed;
+  color: #222;
+}
+
+
+/* =========================================================
+   ENTRY TYPE SELECTOR
+========================================================= */
+
+.entry-type-selector {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr 1fr;
+
+  gap: 6px;
+
+  margin-bottom: 15px;
+}
+
+.entry-type-selector button {
+  min-height: 48px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 3px;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+
+  background: #fff;
+  color: #777;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.entry-type-selector button span {
+  font-size: 14px;
+}
+
+.entry-type-selector button:hover {
+  border-color: #ccc;
+
+  color: #333;
+}
+
+.entry-type-selector button.active {
+  border-color: #111;
+
+  background: #111;
+  color: #fff;
+}
+
+.entry-type-selector button.active.employee {
+  border-color: #555;
+  background: #555;
+}
+
+.entry-type-selector button.active.preparation {
+  border-color: #3d8b55;
+  background: #3d8b55;
+}
+
+.entry-type-selector button.active.packaging {
+  border-color: #806033;
+  background: #806033;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  color: #555;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 36px;
+
+  padding: 0 10px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #ddd;
+  border-radius: 7px;
+
+  outline: none;
+
+  background: #fff;
+
+  color: #222;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  transition: border-color 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #999;
+}
+
+.form-group input::placeholder {
+  color: #aaa;
+}
+
+
+/* =========================================================
+   FORM ROW
+========================================================= */
+
+.form-row {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 8px;
+}
+
+
+/* =========================================================
+   AMOUNT INPUT
+========================================================= */
+
+.amount-input {
+  width: 100%;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+
+  box-sizing: border-box;
+
+  border: 1px solid #ddd;
+  border-radius: 7px;
+
+  overflow: hidden;
+}
+
+.amount-input > span {
+  padding-left: 10px;
+
+  color: #999;
+
+  font-size: 10px;
+}
+
+.amount-input input {
+  height: 100%;
+
+  padding-left: 4px;
+
+  border: 0;
+
+  outline: 0;
+}
+
+
+/* =========================================================
+   SALARY TOGGLE
+========================================================= */
+
+.salary-toggle {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-top: 4px;
+  margin-bottom: 10px;
+
+  padding: 9px 10px;
+
+  border: 1px solid #eee;
+  border-radius: 8px;
+
+  background: #fafafa;
+
+  cursor: pointer;
+}
+
+.salary-toggle input {
+  width: 15px;
+  height: 15px;
+
+  margin: 0;
+
+  accent-color: #111;
+
+  cursor: pointer;
+}
+
+.salary-toggle span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.salary-toggle strong {
+  color: #333;
+
+  font-size: 9px;
+}
+
+.salary-toggle small {
+  color: #999;
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 7px;
+
+  margin-top: 14px;
+  padding-top: 12px;
+
+  border-top: 1px solid #eee;
+}
+
+.cancel-btn,
+.save-entry-btn {
+  height: 35px;
+
+  padding: 0 13px;
+
+  border-radius: 7px;
+
+  font-family: inherit;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.cancel-btn {
+  border: 1px solid #ddd;
+
+  background: #fff;
+  color: #666;
+}
+
+.cancel-btn:hover {
+  background: #f7f7f7;
+}
+
+.save-entry-btn {
+  min-width: 100px;
+
+  border: 0;
+
+  background: #111;
+  color: #fff;
+}
+
+.save-entry-btn:hover {
+  background: #292929;
+}
+
+.cancel-btn:disabled,
+.save-entry-btn:disabled {
+  opacity: 0.55;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .expense-summary {
+    grid-template-columns:
+      1.4fr
+      1fr
+      1fr;
+
+    grid-template-rows:
+      auto auto;
+  }
+
+  .expense-summary-main {
+    grid-row: span 2;
+  }
+
+  .expense-summary-item {
+    min-height: 58px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .daily-stock-page {
+    padding: 12px 10px 70px;
+  }
+
+
+  /* Header */
+
+  .daily-stock-header {
+    align-items: center;
+
+    margin-bottom: 12px;
+  }
+
+  .daily-stock-header h2 {
+    font-size: 18px;
+  }
+
+  .daily-stock-header p {
+    max-width: 230px;
+
+    font-size: 9px;
+    line-height: 1.3;
+  }
+
+  .add-entry-btn {
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border-radius: 9px;
+
+    font-size: 0;
+  }
+
+  .add-entry-btn span {
+    font-size: 20px;
+  }
+
+
+  /* Summary */
+
+  .expense-summary {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 6px;
+
+    margin-bottom: 12px;
+  }
+
+  .expense-summary-main {
+    grid-column: span 2;
+
+    min-height: 67px;
+  }
+
+  .expense-summary-item {
+    min-height: 54px;
+
+    padding: 9px 10px;
+  }
+
+  .expense-summary-item strong {
+    font-size: 13px;
+  }
+
+
+  /* Toolbar */
+
+  .stock-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 7px;
+
+    margin-bottom: 7px;
+  }
+
+  .stock-filters {
+    width: 100%;
+  }
+
+  .stock-filters button {
+    height: 28px;
+
+    padding: 0 10px;
+
+    font-size: 12px;
+  }
+
+  .stock-search {
+    width: 100%;
+    height: 31px;
+  }
+
+
+  /* Cards */
+
+  .expense-card {
+    min-height: 54px;
+
+    padding: 8px 9px;
+
+    gap: 8px;
+  }
+
+  .expense-card-title {
+    gap: 5px;
+  }
+
+  .expense-card-title h4 {
+    font-size: 11px;
+  }
+
+  .type-badge {
+    height: 16px;
+
+    padding: 0 5px;
+
+    font-size: 8px;
+  }
+
+  .expense-card-meta {
+    font-size: 9px;
+
+    gap: 4px;
+  }
+
+  .expense-note {
+    max-width: 200px;
+
+    font-size: 8px;
+  }
+
+  .salary-deduction-badge {
+    font-size: 8px;
+  }
+
+  .expense-card-amount {
+    min-width: 55px;
+  }
+
+  .expense-card-amount strong {
+    font-size: 12px;
+  }
+
+
+  /* Modal */
+
+  .daily-stock-overlay {
+    align-items: flex-end;
+
+    padding: 0;
+  }
+
+  .daily-stock-modal {
+    max-width: none;
+
+    max-height: 90vh;
+
+    padding: 15px;
+
+    border-radius:
+      15px 15px 0 0;
+
+    animation:
+      mobileModalIn
+      0.2s ease-out;
+  }
+
+  @keyframes mobileModalIn {
+    from {
+      opacity: 0;
+
+      transform:
+        translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+
+      transform:
+        translateY(0);
+    }
+  }
+
+  .modal-header {
+    margin-bottom: 12px;
+  }
+
+  .modal-header h3 {
+    font-size: 15px;
+  }
+
+
+  /* Type selector */
+
+  .entry-type-selector {
+    gap: 5px;
+
+    margin-bottom: 12px;
+  }
+
+  .entry-type-selector button {
+    min-height: 45px;
+
+    font-size: 12px;
+  }
+
+  .entry-type-selector button span {
+    font-size: 13px;
+  }
+
+
+  /* Forms */
+
+  .form-row {
+    gap: 7px;
+  }
+
+  .form-group {
+    margin-bottom: 8px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .amount-input {
+    height: 35px;
+
+    font-size: 10px;
+  }
+
+
+  /* Actions */
+
+  .modal-actions {
+    margin-top: 11px;
+    padding-top: 10px;
+  }
+
+  .cancel-btn,
+  .save-entry-btn {
+    height: 36px;
+
+    font-size: 9px;
+  }
+
+  .save-entry-btn {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+  .daily-stock-page {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .daily-stock-header h2 {
+    font-size: 17px;
+  }
+
+  .expense-summary-item span {
+    font-size: 7px;
+  }
+
+  .expense-summary-item strong {
+    font-size: 12px;
+  }
+
+  .stock-filters button {
+    padding: 0 8px;
+  }
+
+  .expense-card {
+    padding: 7px;
+  }
+
+  .expense-card-title h4 {
+    max-width: 130px;
+  }
+
+  .type-badge {
+    display: none;
+  }
+
+  .expense-card-meta {
+    max-width: 180px;
+  }
+}

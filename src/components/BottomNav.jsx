@@ -1,57 +1,74 @@
 import { NavLink } from "react-router-dom";
-import './bottomNav.css'
+import "./bottomNav.css";
+
 export default function BottomNav() {
   return (
-    <div className="bottom-nav">
+    <nav className="bottom-nav">
+
       <NavLink
         to="/"
         className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
+          `nav-item ${
+            isActive ? "active" : ""
+          }`
         }
       >
-        Home
+        {/* <span className="nav-icon">⌂</span> */}
+        <span>Home</span>
       </NavLink>
+
 
       <NavLink
         to="/orders"
         className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
+          `nav-item ${
+            isActive ? "active" : ""
+          }`
         }
       >
-        Orders
+        {/* <span className="nav-icon">☰</span> */}
+        <span>Orders</span>
       </NavLink>
+
 
       <NavLink
         to="/inventory"
         className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
+          `nav-item ${
+            isActive ? "active" : ""
+          }`
         }
       >
-        Inventory
+        {/* <span className="nav-icon">▦</span> */}
+        <span>Inventory</span>
       </NavLink>
 
-      {/* <NavLink
-        to="/profile"
+
+      <NavLink
+        to="/stock"
         className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
+          `nav-item ${
+            isActive ? "active" : ""
+          }`
         }
       >
-        Profile
-      </NavLink> */}
-       <NavLink to="/stock"
-        className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
-        }
-      >
-        Stock
-      </NavLink>       <NavLink to="/dashboard"
-        className={({ isActive }) =>
-          isActive ? "nav-item active" : "nav-item"
-        }
-      >
-        Dashboard
+        {/* <span className="nav-icon">₹</span> */}
+        <span>Expenses</span>
       </NavLink>
 
-    </div>
+
+      <NavLink
+        to="/dashboard"
+        className={({ isActive }) =>
+          `nav-item ${
+            isActive ? "active" : ""
+          }`
+        }
+      >
+        {/* <span className="nav-icon">▥</span> */}
+        <span>Dashboard</span>
+      </NavLink>
+
+    </nav>
   );
 }

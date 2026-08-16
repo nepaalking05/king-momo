@@ -55,6 +55,7 @@ body {
   padding: 8px 16px;
   border-radius: 20px;
   border: none;
+  font-size: 14px;
 }
 
 .menu-grid {
@@ -85,24 +86,13 @@ body {
 .add-btn {
   width: calc(100% - 20px);
   margin: 10px;
-  background: #4b1600;
+  background: #c87d5f;
   color: white;
   border: none;
   padding: 12px;
   border-radius: 10px;
 }
 
-.cart-panel {
-  background: white;
-  padding: 20px;
-  border-left: 1px solid #eee;
-}
-
-.cart-item {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-}
 
 .qty-box {
   display: flex;
@@ -121,14 +111,7 @@ body {
   font-weight: bold;
 }
 
-.checkout-btn,
-.upi-btn {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  border-radius: 10px;
-  border: none;
-}
+
 
 .checkout-btn {
   background: #4b1600;
@@ -595,7 +578,7 @@ body {
 
   cursor: pointer;
 
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .chip.active {
@@ -704,7 +687,7 @@ body {
 }
 
 .add-btn {
-  width: 100%;
+  width: 40%;
   margin-top: 10px;
 
   border: none;

@@ -1,9 +1,16 @@
-export default function MenuCard({
+import React from "react";
+import "./menuCard.css";
+
+const MenuCard = ({
   item,
+  quantity = 0,
   onAdd,
-}) {
-  const isOutOfStock =
-    Number(item.stock || 0) <= 0;
+  onIncrease,
+  onDecrease,
+}) => {
+  const isOutOfStock = !item.stock || item.stock <= 0;
+  const isLowStock =
+    !isOutOfStock && item.stock <= (item.lowStock || 3);
 
   return (
     <div
@@ -11,47 +18,94 @@ export default function MenuCard({
         isOutOfStock ? "out-of-stock" : ""
       }`}
     >
-      <div className="image-wrapper">
-        <img
-          src={item.image}
-          alt={item.name}
-        />
+      {/* Food Image */}
+      <div className="menu-image">
+        {item.image ? (
+          <img
+            src={item.image}
+            alt={item.name}
+          />
+        ) : (
+          <div className="image-placeholder">🍽️</div>
+        )}
 
         {isOutOfStock && (
-          <div className="stock-overlay">
+          <div className="image-overlay">
             Out of Stock
           </div>
         )}
       </div>
 
-      <h3>{item.name}</h3>
+      {/* Food Details */}
+      <div className="menu-content">
+        <div className="menu-header">
+          <h3 title={item.name}>
+            {item.name}
+          </h3>
 
-      <p>₹{item.price}</p>
+          {isLowStock && (
+            <span className="low-stock">
+              Low stock
+            </span>
+          )}
+        </div>
 
-      <small>
-        Stock: {item.stock || 0}
-      </small>
-
-      {!isOutOfStock &&
-        item.stock <= item.lowStock && (
-          <div className="low-stock-badge">
-            Low Stock
-          </div>
+        {item.description && (
+          <p className="description">
+            {item.description}
+          </p>
         )}
 
-      <button
-        disabled={isOutOfStock}
-        className={
-          isOutOfStock
-            ? "add-btn disabled"
-            : "add-btn"
-        }
-        onClick={() => onAdd(item)}
-      >
-        {isOutOfStock
-          ? "Unavailable"
-          : "Add"}
-      </button>
+        <div className="menu-bottom">
+          <div className="price-stock">
+            <span className="price">
+              ₹{item.price}
+            </span>
+
+            <span className="stock">
+              {isOutOfStock
+                ? "Unavailable"
+                : `${item.stock} left`}
+            </span>
+          </div>
+
+          {/* Add / Quantity */}
+          {!isOutOfStock && quantity > 0 ? (
+            <div
+              className="quantity-control"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => onDecrease(item)}
+              >
+                −
+              </button>
+
+              <span>{quantity}</span>
+
+              <button
+                type="button"
+                onClick={() => onIncrease(item)}
+                disabled={quantity >= item.stock}
+              >
+                +
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="add-btn"
+              disabled={isOutOfStock}
+              onClick={() => onAdd(item)}
+            >
+              + Add
+            </button>
+          )}
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default MenuCard;
